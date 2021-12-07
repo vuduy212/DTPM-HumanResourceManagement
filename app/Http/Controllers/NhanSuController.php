@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateNhanSuRequest;
 use App\Models\NhanSu;
+use App\Models\VaiTro;
 use Illuminate\Http\Request;
 
 class NhanSuController extends Controller
@@ -32,7 +34,8 @@ class NhanSuController extends Controller
      */
     public function create()
     {
-        return view('nhansu.create');
+        $vaitros = VaiTro::all();
+        return view('nhansu.create', compact('vaitros'));
     }
 
     /**
@@ -41,7 +44,7 @@ class NhanSuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateNhanSuRequest $request)
     {
         $this->nhansu->saveNhanSu($request);
         return redirect(route('nhansu.index'));

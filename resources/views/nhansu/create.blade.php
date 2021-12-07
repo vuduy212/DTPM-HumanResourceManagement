@@ -12,86 +12,130 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Ten nhan su') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Ten nhan su *</label>
                             <div class="col-md-6">
-                                <input id="ten_nhan_su" name="ten_nhan_su" type="text" class="form-control" >
+                                <input id="ten_nhan_su" name="ten_nhan_su" type="text" value="{{ old('ten_nhan_su') }}" class="form-control @error('ten_nhan_su') is-invalid @enderror" >
+                                @error('ten_nhan_su')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
-
+                        <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Loai nhan su') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Loai nhan su *</label>
                             <div class="col-md-6">
-                                <input id="loai_nhan_su" name="loai_nhan_su" type="text" class="form-control" >
+                                <div class="form-check">
+                                    <input type="radio" name="loai_nhan_su" value="Nhan vien" checked>
+                                    <label for="">Nhan vien</label>
+                                    <input type="radio" name="loai_nhan_su" value="Ung vien">
+                                    <label for="">Ung vien</label>
+                                    <input type="radio" name="loai_nhan_su" value="Than nhan">
+                                    <label for="">Than nhan</label>
+                                </div>
                             </div>
                         </div>
-
+                        <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Ngay sinh') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Ngay sinh (YYYY-mm-dd) *</label>
                             <div class="col-md-6">
-                                <input id="ngay_sinh" name="ngay_sinh" type="text" class="form-control" >
+                                <input id="ngay_sinh" name="ngay_sinh" type="text" value="{{ old('ngay_sinh') }}" class="form-control @error('ngay_sinh') is-invalid @enderror" >
+                                @error('ngay_sinh')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
-
+                        <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Gioi tinh') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Gioi tinh *</label>
                             <div class="col-md-6">
-                                <input id="gioi_tinh" name="gioi_tinh" type="text" class="form-control" >
+                                <div class="form-check">
+                                    <input type="radio" name="gioi_tinh" value="0" checked>
+                                    <label for="">Nam</label>
+                                    <input type="radio" name="gioi_tinh" value="1">
+                                    <label for="">Nu</label>
+                                </div>
                             </div>
                         </div>
-
+                        <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('So dien thoai') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">So dien thoai</label>
                             <div class="col-md-6">
                                 <input id="SDT" name="SDT" type="text" class="form-control" >
                             </div>
                         </div>
-
+                        <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Email</label>
                             <div class="col-md-6">
                                 <input id="email" name="email" type="text" class="form-control" >
                             </div>
                         </div>
-
+                        <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Dan toc') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Dan toc</label>
                             <div class="col-md-6">
                                 <input id="dan_toc" name="dan_toc" type="text" class="form-control" >
                             </div>
                         </div>
-
+                        <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Que quan') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Que quan</label>
                             <div class="col-md-6">
                                 <input id="que_quan" name="que_quan" type="text" class="form-control" >
                             </div>
                         </div>
-
+                        <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('CMND') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">CMND</label>
                             <div class="col-md-6">
                                 <input id="CMND" name="CMND" type="text" class="form-control" >
                             </div>
                         </div>
-
+                        <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Trinh do') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Trinh do</label>
                             <div class="col-md-6">
                                 <input id="trinh_do" name="trinh_do" type="text" class="form-control" >
                             </div>
                         </div>
-
+                        <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Mo ta') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Mo ta</label>
                             <div class="col-md-6">
                                 <input id="mo_ta" name="mo_ta" type="text" class="form-control" >
                             </div>
                         </div>
-
+                        <br>
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Vai tro</label>
+                            {{-- <div class="col-md-6">
+                                <select name="vai_tros[{{$vaitros->ten_vai_tro}}]" class="form-select form-select-sm">
+                                    @foreach ($vaitros as $vaitro)
+                                        <option value="{{ $vaitro->id }}">Vai tro {{ $vaitro->ten_vai_tro }}</option>
+                                    @endforeach
+                                </select>
+                            </div> --}}
+                            <div class="col-md-6">
+                                @foreach ($vaitros as $vaitro)
+                                    <div class="form-check">
+                                        <input type="checkbox" name="vai_tros[{{$vaitro->ten_vai_tro}}]" value="{{ $vaitro->id }}"
+                                        @if($vaitro->id == 4) checked @endif>
+                                        <label for="">{{ $vaitro->ten_vai_tro }}</label>
+                                        <label for="name" class="col-md-4 col-form-label text-md-right">Tu ngay</label>
+                                        <input id="tu_ngay" name="tu_ngay" type="text" class="form-control" >
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <br>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Submit') }}
+                                    Them
                                 </button>
                             </div>
                         </div>
