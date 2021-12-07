@@ -24,6 +24,21 @@ class NhanSu extends Model
         'mo_ta',
     ];
 
+    public function vai_tros()
+    {
+        return $this->belongsToMany(VaiTro::class, 'ns_vt', 'ma_nhan_su', 'ma_vai_tro')->withPivot('tu_ngay', 'den_ngay', 'mo_ta', 'luong_co_ban');
+    }
+
+    public function getVaiTroID($vaitros) //return 1 array cac vai tro
+    {
+        $getVaiTro = [];
+        foreach($vaitros as $vaitro)
+        {
+            $getVaiTro[] = $vaitro;
+        }
+        return $getVaiTro;
+    }
+
     public function saveNhanSu(Request $data)
     {
         $nhansu = $this->create([
@@ -39,6 +54,24 @@ class NhanSu extends Model
             'trinh_do' => $data['trinh_do'],
             'mo_ta' => $data['mo_ta'],
         ]);
+
+        if(empty($data['vai_tros']))
+        {
+            $vai_tros = [
+                'Nhan vien' => '4'
+            ];
+        }
+        else
+        {
+            $vai_tros = $this->getVaiTroID($data['vai_tros']);
+        }
+
+        // $plan_id = $data->plan_id;
+        // $childid = $data->child_id;
+        // $plan = App\Plan::find($plan_id);
+        // $user->relations()->attach($plan, ['child' => $childid]);
+
+        $nhansu->vai_tros()->attach($vai_tros);
 
         return $nhansu;
     }

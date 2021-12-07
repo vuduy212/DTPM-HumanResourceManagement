@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\NhanSuController;
+use App\Http\Controllers\VaiTroController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,4 +28,15 @@ Route::prefix('nhansu')->name('nhansu.')->group(function () {
     Route::put('/{nhansu}', [$class, 'update'])->name('update');
     Route::delete('/{nhansu}', [$class, 'destroy'])->name('destroy');
     Route::get('/{nhansu}/edit', [$class, 'edit'])->name('edit');
+});
+
+Route::prefix('vaitro')->name('vaitro.')->group(function () {
+    $class = VaiTroController::class;
+    Route::get('/', [$class, 'index'])->name('index');
+    Route::get('/create', [$class, 'create'])->name('create');
+    Route::post('/', [$class, 'store'])->name('store');
+    Route::get('/{vaitro}', [$class, 'show'])->name('show');
+    Route::put('/{vaitro}', [$class, 'update'])->name('update');
+    Route::delete('/{vaitro}', [$class, 'destroy'])->name('destroy');
+    Route::get('/{vaitro}/edit', [$class, 'edit'])->name('edit');
 });
