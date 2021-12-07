@@ -29,6 +29,7 @@
                             <th scope="col">Gioi tinh</th>
                             <th scope="col">SDT</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Vai tro</th>
                             <th scope="col">Actions</th>
                           </tr>
                         </thead>
@@ -39,9 +40,14 @@
                                 <td>{{$ns->ten_nhan_su}}</td>
                                 <td>{{$ns->loai_nhan_su}}</td>
                                 <td>{{$ns->ngay_sinh}}</td>
-                                <td>{{$ns->gioi_tinh}}</td>
+                                <td>
+                                    @if($ns->gioi_tinh == '0') Nam
+                                    @else Nu
+                                    @endif
+                                </td>
                                 <td>{{$ns->SDT}}</td>
                                 <td>{{$ns->email}}</td>
+                                <td>{{ implode(', ', $ns->vai_tros()->get()->pluck('ten_vai_tro')->toArray()) }}</td>
                                 <td>
                                     <a href="{{ route('nhansu.show', $ns->id) }}"><button type="button" class="btn btn-success">DETAIL</button></a>
                                     <a href="{{ route('nhansu.edit', $ns->id) }}"><button type="button" class="btn btn-warning">EDIT</button>
