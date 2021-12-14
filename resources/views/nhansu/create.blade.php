@@ -24,7 +24,7 @@
                         </div>
                         <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Loai nhan su *</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Loai nhan su*</label>
                             <div class="col-md-6">
                                 <div class="form-check">
                                     <input type="radio" name="loai_nhan_su" value="Nhan vien" checked>
@@ -38,9 +38,9 @@
                         </div>
                         <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Ngay sinh (YYYY-mm-dd) *</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Ngay sinh*</label>
                             <div class="col-md-6">
-                                <input id="ngay_sinh" name="ngay_sinh" type="text" value="{{ old('ngay_sinh') }}" class="form-control @error('ngay_sinh') is-invalid @enderror" >
+                                <input id="ngay_sinh" name="ngay_sinh" type="date" value="{{ old('ngay_sinh') }}" class="form-control @error('ngay_sinh') is-invalid @enderror" >
                                 @error('ngay_sinh')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -50,7 +50,7 @@
                         </div>
                         <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Gioi tinh *</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Gioi tinh*</label>
                             <div class="col-md-6">
                                 <div class="form-check">
                                     <input type="radio" name="gioi_tinh" value="0" checked>
@@ -64,14 +64,14 @@
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">So dien thoai</label>
                             <div class="col-md-6">
-                                <input id="SDT" name="SDT" type="text" class="form-control" >
+                                <input id="SDT" name="SDT" type="tel" class="form-control" >
                             </div>
                         </div>
                         <br>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Email</label>
                             <div class="col-md-6">
-                                <input id="email" name="email" type="text" class="form-control" >
+                                <input id="email" name="email" type="email" class="form-control" >
                             </div>
                         </div>
                         <br>
@@ -110,28 +110,13 @@
                             </div>
                         </div>
                         <br>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Vai tro</label>
-                            {{-- <div class="col-md-6">
-                                <select name="vai_tros[{{$vaitros->ten_vai_tro}}]" class="form-select form-select-sm">
-                                    @foreach ($vaitros as $vaitro)
-                                        <option value="{{ $vaitro->id }}">Vai tro {{ $vaitro->ten_vai_tro }}</option>
-                                    @endforeach
-                                </select>
-                            </div> --}}
-                            <div class="col-md-6">
-                                @foreach ($vaitros as $vaitro)
-                                    <div class="form-check">
-                                        <input type="checkbox" name="vai_tros[{{$vaitro->ten_vai_tro}}]" value="{{ $vaitro->id }}"
-                                        @if($vaitro->id == 4) checked @endif>
-                                        <label for="">{{ $vaitro->ten_vai_tro }}</label>
-                                        <label for="name" class="col-md-4 col-form-label text-md-right">Tu ngay</label>
-                                        <input id="tu_ngay" name="tu_ngay" type="text" class="form-control" >
-                                    </div>
-                                @endforeach
+                            <div class="col-md-12">
+                                @include('nhansu.create_vaitro_nhansu_partial')
                             </div>
                         </div>
-                        <br>
+                        <br> --}}
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

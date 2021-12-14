@@ -47,10 +47,11 @@
                                 </td>
                                 <td>{{$ns->SDT}}</td>
                                 <td>{{$ns->email}}</td>
-                                <td>{{ implode(', ', $ns->vai_tros()->get()->pluck('ten_vai_tro')->toArray()) }}</td>
+                                <td>{{$ns->vai_tros()->pluck('ten_vai_tro')->last()}}</td>
+                                {{-- <td>{{ implode(', ', $ns->vai_tros()->get()->pluck('ten_vai_tro')->toArray()) }}</td> --}}
                                 <td>
                                     <a href="{{ route('nhansu.show', $ns->id) }}"><button type="button" class="btn btn-success">DETAIL</button></a>
-                                    <a href="{{ route('nhansu.edit', $ns->id) }}"><button type="button" class="btn btn-warning">EDIT</button>
+                                    <a href="{{ route('nhansu.edit', $ns->id) }}"><button type="button" class="btn btn-warning">EDIT</button></a>
                                     <form action="{{ route('nhansu.destroy', $ns->id) }}" method="POST" class="float-left">
                                         @csrf
                                         @method('DELETE')

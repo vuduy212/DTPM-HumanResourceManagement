@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/nhansu');
 });
 
 Route::prefix('nhansu')->name('nhansu.')->group(function () {
@@ -28,6 +28,10 @@ Route::prefix('nhansu')->name('nhansu.')->group(function () {
     Route::put('/{nhansu}', [$class, 'update'])->name('update');
     Route::delete('/{nhansu}', [$class, 'destroy'])->name('destroy');
     Route::get('/{nhansu}/edit', [$class, 'edit'])->name('edit');
+    Route::post('/them_vt_ns', [$class, 'them_vaitro_nhansu'])->name('them_vaitro_nhansu');
+    Route::get('/{nhansu}/add_vt', [$class, 'add_vai_tro_for_nhan_su'])->name('add_vai_tro_for_nhan_su');
+    Route::put('/{nhansu}/luu_vt', [$class, 'luu_vai_tro_for_nhan_su'])->name('luu_vai_tro_for_nhan_su');
+    Route::delete('/delete/{id}', [$class, 'delete_vaitro_of_nhansu'])->name('delete_vaitro_of_nhansu');
 });
 
 Route::prefix('vaitro')->name('vaitro.')->group(function () {
