@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NhanSu extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'ma_nhan_su',
         'ten_nhan_su',
         'loai_nhan_su',
         'ngay_sinh',
@@ -55,23 +57,27 @@ class NhanSu extends Model
             'mo_ta' => $data['mo_ta'],
         ]);
 
-        if(empty($data['vai_tros']))
-        {
-            $vai_tros = [
-                'Nhan vien' => '4'
-            ];
-        }
-        else
-        {
-            $vai_tros = $this->getVaiTroID($data['vai_tros']);
-        }
+        // DB::table('ns_vt')->insert([
+        //     'ma_vai_tro' => $data->ma_vai_tro,
+        //     'ma_nhan_su' => $data->ma_nhan_su,
+        //     'tu_ngay' => $data->tu_ngay,
+        //     'den_ngay' => $data->den_ngay,
+        //     'mo_ta' => $data->mo_ta,
+        //     'luong_co_ban' => $data->luong_co_ban],
+        // );
 
-        // $plan_id = $data->plan_id;
-        // $childid = $data->child_id;
-        // $plan = App\Plan::find($plan_id);
-        // $user->relations()->attach($plan, ['child' => $childid]);
+        // if(empty($data['vai_tros']))
+        // {
+        //     $vai_tros = [
+        //         'Nhan vien' => '4'
+        //     ];
+        // }
+        // else
+        // {
+        //     $vai_tros = $this->getVaiTroID($data['vai_tros']);
+        // }
 
-        $nhansu->vai_tros()->attach($vai_tros);
+        // $nhansu->vai_tros()->attach($vai_tros);
 
         return $nhansu;
     }
@@ -80,7 +86,7 @@ class NhanSu extends Model
     {
         $name = array_key_exists('key', $data) ? $data['key'] : null;
 
-        return $this->SearchName($name)->latest('id')->paginate(array_key_exists('number', $data) ? $data['number'] : 3);
+        return $this->SearchName($name)->latest('id')->paginate(array_key_exists('number', $data) ? $data['number'] : 10);
     }
 
     public function scopeSearchName($query, $name)

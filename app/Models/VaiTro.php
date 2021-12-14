@@ -11,6 +11,7 @@ class VaiTro extends Model
     use HasFactory;
 
     protected $fillable = [
+        'ma_vai_tro',
         'ma_to_chuc',
         'ten_vai_tro',
         'mo_ta',
