@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVaiTrosTable extends Migration
+class CreateChuKysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateVaiTrosTable extends Migration
      */
     public function up()
     {
-        Schema::create('vai_tros', function (Blueprint $table) {
+        Schema::create('chu_kys', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('ma_to_chuc')->unsigned();
-            $table->foreign('ma_to_chuc')->references('id')->on('to_chucs');
-            $table->string('ten_vai_tro');
+            $table->text('loai_chu_ky');
+            $table->integer('STT')->unsigned();
+            $table->text('ten_chu_ky')->nullable();
+            $table->date('tu_ngay')->nullable();
+            $table->date('den_ngay')->nullable();
             $table->text('mo_ta')->nullable();
-            $table->float('muc_luong')->unsigned()->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateVaiTrosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vai_tros');
+        Schema::dropIfExists('chu_kys');
     }
 }

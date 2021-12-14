@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVaiTrosTable extends Migration
+class CreateHopDongsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateVaiTrosTable extends Migration
      */
     public function up()
     {
-        Schema::create('vai_tros', function (Blueprint $table) {
+        Schema::create('hop_dongs', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('ma_to_chuc')->unsigned();
-            $table->foreign('ma_to_chuc')->references('id')->on('to_chucs');
-            $table->string('ten_vai_tro');
+            $table->bigInteger('ma_nhan_su')->unsigned();
+            $table->foreign('ma_nhan_su')->references('id')->on('nhan_sus')->onUpdate('cascade')->onDelete('cascade');
+            $table->date('tu_ngay');
+            $table->date('den_ngay')->nullable();
             $table->text('mo_ta')->nullable();
-            $table->float('muc_luong')->unsigned()->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateVaiTrosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vai_tros');
+        Schema::dropIfExists('hop_dongs');
     }
 }
