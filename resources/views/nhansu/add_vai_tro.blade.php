@@ -8,7 +8,7 @@
                 <h4 class="text-center  @error('tu_ngay') is-invalid @enderror" style="color:green"> Them vai tro cho nhan su {{$nhansu->ten_nhan_su}} </h4>
                 @error('tu_ngay')
                     <span class="invalid-feedback" role="alert">
-                        <strong>Vui lòng nhập chính xác ngày bắt đầu</strong>
+                        <strong>Vui lòng nhập thông tin chính xác và đầy đủ</strong>
                     </span>
                 @enderror
                 <div class="row">
@@ -89,9 +89,9 @@
                         });
                         // alert('Them vai tro ' + ma_vai_tro + ' !');
                     }
-                    else{
-                        alert('Vui lòng điền đầy đủ mã vai trò và ngày bắt đầu !');
-                    }
+                    // else{
+                    //     alert('Vui lòng điền đầy đủ mã vai trò và ngày bắt đầu !');
+                    // }
 
                     //$('#new').append('<tr><td>'+ma_vai_tro+'</td><td>'+tu_ngay+'</td><td>'+den_ngay+'</td><td>'+mo_ta+'</td><td>'+luong_co_ban+'</td><td><button class="btn btn-danger btnDelete">DELETE</button></td></tr>');
                 });
