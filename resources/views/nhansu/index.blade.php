@@ -37,14 +37,10 @@
                             @foreach ($nhansu as $ns)
                             <tr>
                                 <th scope="row">{{$ns->id}}</th>
-                                <td>{{$ns->ten_nhan_su}}</td>
+                                <td><a href="{{ route('nhansu.edit', $ns->id) }}" style="text-decoration: none; color:black">{{$ns->ten_nhan_su}}</a></td>
                                 <td>{{$ns->loai_nhan_su}}</td>
                                 <td>{{$ns->ngay_sinh}}</td>
-                                <td>
-                                    @if($ns->gioi_tinh == '0') Nam
-                                    @else Nu
-                                    @endif
-                                </td>
+                                <td>{{$ns->gioi_tinh}}</td>
                                 <td>{{$ns->SDT}}</td>
                                 <td>{{$ns->email}}</td>
                                 <td>{{$ns->vai_tros()->pluck('ten_vai_tro')->last()}}</td>

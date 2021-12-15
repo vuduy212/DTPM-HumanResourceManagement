@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ToChuc;
 use App\Models\VaiTro;
 use Illuminate\Http\Request;
 
@@ -32,7 +33,8 @@ class VaiTroController extends Controller
      */
     public function create()
     {
-        return view('vaitro.create');
+        $tochucs = ToChuc::all();
+        return view('vaitro.create', compact('tochucs'));
     }
 
     /**
@@ -66,7 +68,8 @@ class VaiTroController extends Controller
      */
     public function edit(VaiTro $vaitro)
     {
-        return view('vaitro.edit', compact('vaitro'));
+        $tochucs = ToChuc::all();
+        return view('vaitro.edit', compact('vaitro', 'tochucs'));
     }
 
     /**
@@ -84,7 +87,8 @@ class VaiTroController extends Controller
         $vaitro->muc_luong = $request->muc_luong;
         $vaitro->save();
 
-        return redirect()->route('vaitro.index');
+        return redirect()->back()->with('success', 'Update thành công !');
+        //return redirect()->route('vaitro.index');
     }
 
     /**

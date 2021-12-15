@@ -5,7 +5,12 @@
             {{-- <label for="name" class="col-md-4 col-form-label text-md-right">Vai tro</label> --}}
             <div class="col-md-12 mt-4">
                 <div class="container-fluid">
-                <h4 class="text-center" style="color:green"> Them vai tro cho nhan su {{$nhansu->ten_nhan_su}} </h4>
+                <h4 class="text-center  @error('tu_ngay') is-invalid @enderror" style="color:green"> Them vai tro cho nhan su {{$nhansu->ten_nhan_su}} </h4>
+                @error('tu_ngay')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>Vui lòng nhập chính xác ngày bắt đầu</strong>
+                    </span>
+                @enderror
                 <div class="row">
                     <div class="col-md-12">
                         <table class="table" style="background-color:#e0e0e0;" >
@@ -23,35 +28,32 @@
                             <tbody id="">
                                 <tr>
                                     <td>
-                                        <select name="ma_nhan_su" id="ma_nhan_su">
+                                        <select name="ma_nhan_su" id="ma_nhan_su" class="form-select">
                                             <option id={{$nhansu->id}} value={{$nhansu->id}}>{{$nhansu->ten_nhan_su}}</option>
                                         </select>
                                     </td>
                                     <td>
-                                        <select name="ma_vai_tro" id="ma_vai_tro" class="form-control">
-                                        @foreach($vt as $v)
-                                            <option id="{{$v->id}}" value="{{$v->id}}" class="vegitable custom-select">
-                                                {{$v->ten_vai_tro}}
-                                            </option>
-                                        @endforeach
+                                        <select name="ma_vai_tro" id="ma_vai_tro" class="form-select">
+                                            <option value="" class="vegitable custom-select">Chọn vai trò</option>
+                                            @foreach($vt as $v)
+                                                <option id="{{$v->id}}" value="{{$v->id}}" class="vegitable custom-select">
+                                                    {{$v->ten_vai_tro}}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </td>
                                     <td>
-                                        <input type="date" id="tu_ngay" name="tu_ngay" value="" class="form-control @error('tu_ngay') is-invalid @enderror">
-                                        @error('tu_ngay')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>Ngay bat dau khong duoc trung lap</strong>
-                                            </span>
-                                        @enderror
+                                        <input type="date" id="tu_ngay" name="tu_ngay" value="{{ old('tu_ngay') }}" class="form-control">
+                                        
                                     </td>
                                     <td>
-                                        <input type="date" id="den_ngay" name="den_ngay" value="" class="form-control">
+                                        <input type="date" id="den_ngay" name="den_ngay" value="{{ old('den_ngay') }}" class="form-control">
                                     </td>
                                     <td>
-                                        <input type="text" id="mo_ta" name="mo_ta" value="" class="form-control">
+                                        <input type="text" id="mo_ta" name="mo_ta" value="{{ old('mo_ta') }}" class="form-control">
                                     </td>
                                     <td>
-                                        <input type="number" id="luong_co_ban" name="luong_co_ban" min="0" value="" class="form-control">
+                                        <input type="number" id="luong_co_ban" name="luong_co_ban" min="0" value="{{ old('luong_co_ban') }}" class="form-control">
                                     </td>
                                     <td><button id="add" class="btn btn-success">Add</button></td>
                                 </tr>
@@ -88,7 +90,7 @@
                         // alert('Them vai tro ' + ma_vai_tro + ' !');
                     }
                     else{
-                        alert('Ngay bat dau khong duoc de trong !');
+                        alert('Vui lòng điền đầy đủ mã vai trò và ngày bắt đầu !');
                     }
 
                     //$('#new').append('<tr><td>'+ma_vai_tro+'</td><td>'+tu_ngay+'</td><td>'+den_ngay+'</td><td>'+mo_ta+'</td><td>'+luong_co_ban+'</td><td><button class="btn btn-danger btnDelete">DELETE</button></td></tr>');

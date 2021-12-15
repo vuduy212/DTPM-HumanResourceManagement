@@ -23,7 +23,7 @@
                         <thead>
                           <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Ma to chuc</th>
+                            <!-- <th scope="col">Ma to chuc</th> -->
                             <th scope="col">Ten vai tro</th>
                             <th scope="col">Mo ta</th>
                             <th scope="col">Muc luong</th>
@@ -34,7 +34,7 @@
                             @foreach ($vaitro as $vt)
                             <tr>
                                 <th scope="row">{{$vt->id}}</th>
-                                <td>{{$vt->ma_to_chuc}}</td>
+                                <!-- <td>{{$vt->ma_to_chuc}}</td> -->
                                 <td>{{$vt->ten_vai_tro}}</td>
                                 <td>{{$vt->mo_ta}}</td>
                                 <td>{{$vt->muc_luong}}</td>

@@ -10,7 +10,7 @@
                     <p>{{ session('success') }}</p>
                 </div>
                 @endif
-                <div class="card-header">Chinh sua nhan su {{$nhansu->ten_nhan_su}}</div>
+                <div class="card-header">Thong tin nhan su {{$nhansu->ten_nhan_su}}</div>
 
                 <div class="card-body">
                     <form action="{{ route('nhansu.update', $nhansu) }}" method="POST">
@@ -57,9 +57,9 @@
                                     <label for="name" class="col-lg-3 col-form-label text-lg-right">Gioi tinh*</label>
                                     <div class="col-lg-3">
                                         <div class="form-check">
-                                            <input type="radio" name="gioi_tinh" value="0" @if($nhansu->gioi_tinh == '0') checked @endif>
+                                            <input type="radio" name="gioi_tinh" value="0" @if($nhansu->gioi_tinh == 'nam') checked @endif>
                                             <label for="">Nam</label>
-                                            <input type="radio" name="gioi_tinh" value="1" @if($nhansu->gioi_tinh == '1') checked @endif>
+                                            <input type="radio" name="gioi_tinh" value="1" @if($nhansu->gioi_tinh == 'nu') checked @endif>
                                             <label for="">Nu</label>
                                         </div>
                                     </div>
@@ -106,7 +106,15 @@
                                 <div class="form-group row">
                                     <label for="name" class="col-lg-3 col-form-label text-lg-right">Trinh do</label>
                                     <div class="col-lg-6">
-                                        <input id="trinh_do" type="text" class="form-control" name="trinh_do" value="{{ $nhansu->trinh_do }}" autofocus>
+                                        <select name="ma_vai_tro" id="ma_vai_tro" class="form-control">
+                                            <option value="" class="vegitable custom-select">Chọn trình độ</option>
+                                            <option value="Cấp 2" class="vegitable custom-select">Cấp 2</option>
+                                            <option value="Cấp 3" class="vegitable custom-select">Cấp 3</option>
+                                            <option value="Cao đẳng" class="vegitable custom-select">Cao đẳng</option>
+                                            <option value="Đại học" class="vegitable custom-select">Đại học</option>
+                                            <option value="Thạc sỹ" class="vegitable custom-select">Thạc sỹ</option>
+                                            <option value="Tiến sỹ" class="vegitable custom-select">Tiến sỹ</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <br>
