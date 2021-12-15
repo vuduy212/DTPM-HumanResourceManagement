@@ -22,6 +22,7 @@ class CreateChamCongsTable extends Migration
             $table->foreign('ma_chu_ky')->references('id')->on('chu_kys')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('ma_kt_kl')->references('id')->on('kt_kls')->onUpdate('cascade')->onDelete('cascade');
             $table->text('mo_ta')->nullable();
+            $table->unique(['ma_nhan_su', 'ma_chu_ky']);
             $table->timestamps();
         });
     }

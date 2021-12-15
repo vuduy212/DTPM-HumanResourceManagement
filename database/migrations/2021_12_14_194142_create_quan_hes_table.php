@@ -19,6 +19,9 @@ class CreateQuanHesTable extends Migration
             $table->bigInteger('ma_ns2')->unsigned();
             $table->foreign('ma_ns1')->references('id')->on('nhan_sus')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('ma_ns2')->references('id')->on('nhan_sus')->onUpdate('cascade')->onDelete('cascade');
+            $table->text('kieu_quan_he')->nullable();
+            $table->text('mo_ta')->nullable();
+            $table->unique(['ma_ns1', 'ma_ns2']);
             $table->timestamps();
         });
     }

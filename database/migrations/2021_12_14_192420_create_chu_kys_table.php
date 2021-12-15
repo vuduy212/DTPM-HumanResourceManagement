@@ -21,6 +21,7 @@ class CreateChuKysTable extends Migration
             $table->date('tu_ngay')->nullable();
             $table->date('den_ngay')->nullable();
             $table->text('mo_ta')->nullable();
+            $table->unique(['loai_chu_ky', 'STT']);
             $table->timestamps();
         });
     }

@@ -17,6 +17,8 @@ class CreateKieuCVSTable extends Migration
             $table->id();
             $table->text('ten_kieu_cv');
             $table->text('mo_ta')->nullable();
+            $table->bigInteger('ma_kieu_cv_cha')->unsigned()->nullable();
+            $table->foreign('ma_kieu_cv_cha')->references('id')->on('kieu_cvs')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

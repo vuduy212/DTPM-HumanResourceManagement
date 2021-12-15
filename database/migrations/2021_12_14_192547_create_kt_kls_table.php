@@ -19,6 +19,7 @@ class CreateKTKLSTable extends Migration
             $table->integer('STT');
             $table->text('ten')->nullable();
             $table->text('mo_ta')->nullable();
+            $table->unique(['loai_kt_kl', 'STT']);
             $table->timestamps();
         });
     }

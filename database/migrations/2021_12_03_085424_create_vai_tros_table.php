@@ -16,10 +16,10 @@ class CreateVaiTrosTable extends Migration
         Schema::create('vai_tros', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('ma_to_chuc')->unsigned();
-            $table->foreign('ma_to_chuc')->references('id')->on('to_chucs');
+            $table->foreign('ma_to_chuc')->references('id')->on('to_chucs')->onUpdate('cascade')->onDelete('cascade');;
             $table->string('ten_vai_tro');
             $table->text('mo_ta')->nullable();
-            $table->float('muc_luong')->unsigned()->nullable();
+            $table->text('muc_luong')->nullable();
             $table->timestamps();
         });
     }
