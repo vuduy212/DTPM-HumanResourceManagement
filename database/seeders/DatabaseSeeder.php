@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ToChucSeeder::class);
         $this->call(VaiTroSeeder::class);
         $this->call(ChuKySeeder::class);
-        $this->call(HopDongSeeder::class);
         $this->call(KieuCVSeeder::class);
+        $this->call(HopDongSeeder::class);
         $this->call(KTKLSeeder::class);
         $this->call(ChamCongSeeder::class);
     }
