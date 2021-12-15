@@ -9,6 +9,8 @@ class KieuCV extends Model
 {
     use HasFactory;
 
+    protected $table = 'kieu_cvs';
+
     protected $fillable = [
         'ten_kieu_cv',
         'mo_ta',

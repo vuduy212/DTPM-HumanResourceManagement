@@ -39,7 +39,7 @@ class VaiTro extends Model
     {
         $name = array_key_exists('key', $data) ? $data['key'] : null;
 
-        return $this->SearchName($name)->latest('id')->paginate(array_key_exists('number', $data) ? $data['number'] : 3);
+        return $this->SearchName($name)->latest('id')->paginate(array_key_exists('number', $data) ? $data['number'] : 10);
     }
 
     public function scopeSearchName($query, $name)

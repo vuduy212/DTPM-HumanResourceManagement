@@ -9,6 +9,8 @@ class ChuKy extends Model
 {
     use HasFactory;
 
+    protected $table = 'chu_kys';
+
     protected $fillable = [
         'loai_chu_ky',
         'STT',

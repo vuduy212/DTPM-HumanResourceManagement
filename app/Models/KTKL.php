@@ -9,6 +9,8 @@ class KTKL extends Model
 {
     use HasFactory;
 
+    protected $table = 'kt_kls';
+
     protected $fillable = [
         'loai_kt_kl',
         'STT',
